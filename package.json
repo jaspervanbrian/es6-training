@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "rollup-plugin-buble": "^0.18.0"
+  },
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "name": "es6-training",
+  "version": "1.0.0",
+  "main": "rollup.config.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
