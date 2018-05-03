@@ -19,7 +19,9 @@
   "directories": {
     "lib": "lib"
   },
-  "dependencies": {},
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

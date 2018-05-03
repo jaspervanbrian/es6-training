@@ -1,6 +1,7 @@
 import { TaskCollection } from './TaskCollection';
 import { User } from './User.js';
 import StrategyPattern, { log } from './StrategyPattern.js';
+import { checkForecast } from './Promise.js';
 
 let myTasks = new TaskCollection([
 	"Go to the Store",
@@ -68,3 +69,5 @@ newUser.email = 'jeffreyway@laracasts.com';
 console.dir(newUser);
 
 log(new StrategyPattern);
+
+checkForecast();
