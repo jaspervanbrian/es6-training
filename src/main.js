@@ -4,7 +4,7 @@ import StrategyPattern, { log } from './StrategyPattern.js';
 import { checkForecast } from './AxiosPromise.js';
 import { promiseDemo } from './Promise.js';
 import { checkIncludes } from './Strings.js';
-
+import { testArrays } from './Arrays.js';
 let myTasks = new TaskCollection([
 	"Go to the Store",
 	"Finish Screencast",
@@ -77,3 +77,5 @@ checkForecast();
 promiseDemo(3000).then(() => alert("Accepted")).catch(() => alert("Rejected"));
 
 checkIncludes("HELLO milady hello");
+
+testArrays();
