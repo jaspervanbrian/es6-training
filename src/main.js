@@ -1,7 +1,9 @@
 import { TaskCollection } from './TaskCollection';
 import { User } from './User.js';
 import StrategyPattern, { log } from './StrategyPattern.js';
-import { checkForecast } from './Promise.js';
+import { checkForecast } from './AxiosPromise.js';
+import { promiseDemo } from './Promise.js';
+import { checkIncludes } from './Strings.js';
 
 let myTasks = new TaskCollection([
 	"Go to the Store",
@@ -71,3 +73,7 @@ console.dir(newUser);
 log(new StrategyPattern);
 
 checkForecast();
+
+promiseDemo(3000).then(() => alert("Accepted")).catch(() => alert("Rejected"));
+
+checkIncludes("HELLO milady hello");

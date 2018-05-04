@@ -392,15 +392,27 @@ eval("// shim for using process in browser\nvar process = module.exports = {};\n
 
 /***/ }),
 
-/***/ "./src/Promise.js":
-/*!************************!*\
-  !*** ./src/Promise.js ***!
-  \************************/
+/***/ "./src/AxiosPromise.js":
+/*!*****************************!*\
+  !*** ./src/AxiosPromise.js ***!
+  \*****************************/
 /*! exports provided: checkForecast */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"checkForecast\", function() { return checkForecast; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction checkForecast() {\n\tlet promise = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://us-central1-terminus-161218.cloudfunctions.net/noah/four_hour_forecast');\n\n\tpromise.then((response) => {\n\t\tlet location = \"Manila, Metro Manila\";\n\t\tlet json = response.data;\n\t\tlet forecast;\n\t\tfor (let i = 0; i < json.length; i++) {\n\t\t\tif (json[i].location === location) {\n\t\t\t\tforecast = json[i];\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tlet anchor = document.getElementById(\"forecast\");\n\t\tlet html;\n\n\t\tif (typeof forecast === \"undefined\") {\n\t\t\thtml = \"Unknown\";\n\t\t} else {\n\t\t\thtml = '<img src=\"' + forecast.icon + '\" width=\"50\">' + forecast.data[0].chance_of_rain + \" (\" + forecast.data[0].percent_chance_of_rain + \"%)\";\n\t\t}\n\n\t\tanchor.innerHTML = html;\n\t});\n\n\tpromise.catch((error) => {\n\n\t});\n}\n\n//# sourceURL=webpack:///./src/Promise.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"checkForecast\", function() { return checkForecast; });\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ \"./node_modules/axios/index.js\");\n/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction checkForecast() {\n\tlet promise = axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('https://us-central1-terminus-161218.cloudfunctions.net/noah/four_hour_forecast');\n\n\tpromise.then((response) => {\n\t\tlet location = \"Manila, Metro Manila\";\n\t\tlet json = response.data;\n\t\tlet forecast;\n\t\tfor (let i = 0; i < json.length; i++) {\n\t\t\tif (json[i].location === location) {\n\t\t\t\tforecast = json[i];\n\t\t\t\tbreak;\n\t\t\t}\n\t\t}\n\t\tlet anchor = document.getElementById(\"forecast\");\n\t\tlet html;\n\n\t\tif (typeof forecast === \"undefined\") {\n\t\t\thtml = \"Unknown\";\n\t\t} else {\n\t\t\thtml = '<img src=\"' + forecast.icon + '\" width=\"50\">' + forecast.data[0].chance_of_rain + \" (\" + forecast.data[0].percent_chance_of_rain + \"%)\";\n\t\t}\n\n\t\tanchor.innerHTML = html;\n\t});\n\n\tpromise.catch((error) => {\n\n\t});\n}\n\n//# sourceURL=webpack:///./src/AxiosPromise.js?");
+
+/***/ }),
+
+/***/ "./src/Promise.js":
+/*!************************!*\
+  !*** ./src/Promise.js ***!
+  \************************/
+/*! exports provided: promiseDemo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"promiseDemo\", function() { return promiseDemo; });\nfunction promiseDemo(length) {\n\treturn new Promise((resolve, reject) => {\n\t\tsetTimeout(() => {\n\t\t\tresolve();\n\t\t}, length);\n\t\tsetTimeout(() => {\n\t\t\treject();\n\t\t}, 2000);\n\t});\n}\n\n\n//# sourceURL=webpack:///./src/Promise.js?");
 
 /***/ }),
 
@@ -413,6 +425,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"log\", function() { return log; });\nclass StrategyPattern\n{\n\thandle()\n\t{\n\t\talert(\"Testing handle on strategy.\");\n\t}\n}\n\nfunction log(strategy)\n{\n\tstrategy.handle();\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (StrategyPattern);\n\n\n//# sourceURL=webpack:///./src/StrategyPattern.js?");
+
+/***/ }),
+
+/***/ "./src/Strings.js":
+/*!************************!*\
+  !*** ./src/Strings.js ***!
+  \************************/
+/*! exports provided: checkIncludes */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"checkIncludes\", function() { return checkIncludes; });\nfunction checkIncludes(example) {\n\tlet msg = \"\";\n\texample = example.toLowerCase();\n\tlet portion = prompt(\"Enter a string\").toLowerCase();\n\tif (example.includes(portion)) {\n\t\tmsg += \"Found, \";\n\t} else {\n\t\tmsg += \"Not Found, \";\n\t}\n\n\tif (example.startsWith(portion)) {\n\t\tmsg += \"Starts with, \";\n\t} else {\n\t\tmsg += \"Didn't start with, \";\n\t}\n\n\tif (example.endsWith(portion)) {\n\t\tmsg += \"Ends with\";\n\t} else {\n\t\tmsg += \"Didn't end\";\n\t}\n\tlet padder = \"=\".repeat(5);\n\talert(`${padder} ${msg} ${padder}`);\n\tconsole.log(`tro ${ \"lol\".repeat(100) }`);\n}\n\n//# sourceURL=webpack:///./src/Strings.js?");
 
 /***/ }),
 
@@ -448,7 +472,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _TaskCollection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskCollection */ \"./src/TaskCollection.js\");\n/* harmony import */ var _User_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./User.js */ \"./src/User.js\");\n/* harmony import */ var _StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StrategyPattern.js */ \"./src/StrategyPattern.js\");\n/* harmony import */ var _Promise_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Promise.js */ \"./src/Promise.js\");\n\n\n\n\n\nlet myTasks = new _TaskCollection__WEBPACK_IMPORTED_MODULE_0__[\"TaskCollection\"]([\n\t\"Go to the Store\",\n\t\"Finish Screencast\",\n\t\"Eat cake\"\n]);\n\nmyTasks.dump();\n\nconsole.log(myTasks.add(1,2,3));\n\nlet nums = [1,2,3,4];\nconsole.log(...nums);\n\nlet hello = \"Bar\";\nlet myHTML = `\n\t<div>\n\t\t<p>${hello}</p>\n\t</div>\n`;\nconsole.log(myHTML);\n\nfunction helloPerson() {\n\tlet name = \"John\";\n\tlet age = 39;\n\treturn {\n\t\tname,\n\t\tage,\n\t\tgreet() {\n\t\t\treturn `Hello ${this.name}`;\n\t\t},\n\t}\n}\nalert(helloPerson().greet());\n\nlet person = {\n\tname: \"Karen\",\n\tage: 100,\n\tgender: \"Female\",\n\tparent: true,\n};\n\nlet {name, age} = person;\n\nalert(name);\n\nfunction greetPerson( {parent, gender} ) {\n\tif (parent) {\n\t\tif (gender === \"Female\") {\n\t\t\treturn \"Hello mommy\";\n\t\t} else {\n\t\t\treturn \"Hello daddy\";\n\t\t}\n\t} else {\n\t\treturn \"Greetings\";\n\t}\n}\nconsole.log(greetPerson(person));\n\nlet newUser = _User_js__WEBPACK_IMPORTED_MODULE_1__[\"User\"].register(\"John\", \"johndoe@example.com\");\nconsole.dir(newUser);\nnewUser.greet();\nconsole.dir(newUser);\nnewUser.email = 'jeffreyway@laracasts.com';\nconsole.dir(newUser);\n\nObject(_StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__[\"log\"])(new _StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\nObject(_Promise_js__WEBPACK_IMPORTED_MODULE_3__[\"checkForecast\"])();\n\n//# sourceURL=webpack:///./src/main.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _TaskCollection__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./TaskCollection */ \"./src/TaskCollection.js\");\n/* harmony import */ var _User_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./User.js */ \"./src/User.js\");\n/* harmony import */ var _StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./StrategyPattern.js */ \"./src/StrategyPattern.js\");\n/* harmony import */ var _AxiosPromise_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./AxiosPromise.js */ \"./src/AxiosPromise.js\");\n/* harmony import */ var _Promise_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Promise.js */ \"./src/Promise.js\");\n/* harmony import */ var _Strings_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Strings.js */ \"./src/Strings.js\");\n\n\n\n\n\n\n\nlet myTasks = new _TaskCollection__WEBPACK_IMPORTED_MODULE_0__[\"TaskCollection\"]([\n\t\"Go to the Store\",\n\t\"Finish Screencast\",\n\t\"Eat cake\"\n]);\n\nmyTasks.dump();\n\nconsole.log(myTasks.add(1,2,3));\n\nlet nums = [1,2,3,4];\nconsole.log(...nums);\n\nlet hello = \"Bar\";\nlet myHTML = `\n\t<div>\n\t\t<p>${hello}</p>\n\t</div>\n`;\nconsole.log(myHTML);\n\nfunction helloPerson() {\n\tlet name = \"John\";\n\tlet age = 39;\n\treturn {\n\t\tname,\n\t\tage,\n\t\tgreet() {\n\t\t\treturn `Hello ${this.name}`;\n\t\t},\n\t}\n}\nalert(helloPerson().greet());\n\nlet person = {\n\tname: \"Karen\",\n\tage: 100,\n\tgender: \"Female\",\n\tparent: true,\n};\n\nlet {name, age} = person;\n\nalert(name);\n\nfunction greetPerson( {parent, gender} ) {\n\tif (parent) {\n\t\tif (gender === \"Female\") {\n\t\t\treturn \"Hello mommy\";\n\t\t} else {\n\t\t\treturn \"Hello daddy\";\n\t\t}\n\t} else {\n\t\treturn \"Greetings\";\n\t}\n}\nconsole.log(greetPerson(person));\n\nlet newUser = _User_js__WEBPACK_IMPORTED_MODULE_1__[\"User\"].register(\"John\", \"johndoe@example.com\");\nconsole.dir(newUser);\nnewUser.greet();\nconsole.dir(newUser);\nnewUser.email = 'jeffreyway@laracasts.com';\nconsole.dir(newUser);\n\nObject(_StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__[\"log\"])(new _StrategyPattern_js__WEBPACK_IMPORTED_MODULE_2__[\"default\"]);\n\nObject(_AxiosPromise_js__WEBPACK_IMPORTED_MODULE_3__[\"checkForecast\"])();\n\nObject(_Promise_js__WEBPACK_IMPORTED_MODULE_4__[\"promiseDemo\"])(3000).then(() => alert(\"Accepted\")).catch(() => alert(\"Rejected\"));\n\nObject(_Strings_js__WEBPACK_IMPORTED_MODULE_5__[\"checkIncludes\"])(\"HELLO milady hello\");\n\n//# sourceURL=webpack:///./src/main.js?");
 
 /***/ })
 
