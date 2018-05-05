@@ -5,6 +5,8 @@ import { checkForecast } from './AxiosPromise.js';
 import { promiseDemo } from './Promise.js';
 import { checkIncludes } from './Strings.js';
 import { testArrays } from './Arrays.js';
+import { numbers, range } from './Generator.js';
+
 let myTasks = new TaskCollection([
 	"Go to the Store",
 	"Finish Screencast",
@@ -79,3 +81,17 @@ promiseDemo(3000).then(() => alert("Accepted")).catch(() => alert("Rejected"));
 checkIncludes("HELLO milady hello");
 
 testArrays();
+
+// Basic iterator way with next()
+console.log(numbers());
+
+let iterator = numbers();
+console.log(iterator.next());
+console.log(iterator.next().value);
+
+// for-of implementation
+let range_of_numbers = range(1,5);
+for (let i of range_of_numbers) console.log(i);
+
+// spread implementation
+console.log([...range(1,5)]);
