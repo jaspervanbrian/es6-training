@@ -6,7 +6,7 @@ export function *numbers() {
 }
 
 export function *range(start, end) {
-	while (start < end) {
+	while (start <= end) {
 		yield start++;
 	}
 }

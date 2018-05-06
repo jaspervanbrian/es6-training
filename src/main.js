@@ -6,6 +6,7 @@ import { promiseDemo } from './Promise.js';
 import { checkIncludes } from './Strings.js';
 import { testArrays } from './Arrays.js';
 import { numbers, range } from './Generator.js';
+import { sets, setDemo } from './Set.js';
 
 let myTasks = new TaskCollection([
 	"Go to the Store",
@@ -92,6 +93,11 @@ console.log(iterator.next().value);
 // for-of implementation
 let range_of_numbers = range(1,5);
 for (let i of range_of_numbers) console.log(i);
+for (let i of range(1,5)) console.log(i);
 
 // spread implementation
 console.log([...range(1,5)]);
+console.log(...range(1,5));
+
+// sets();
+setDemo();
